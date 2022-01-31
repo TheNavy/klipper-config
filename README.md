@@ -1,5 +1,8 @@
 # My custom Klipper macros
 
+All credit goes to @dudeofawesome -> https://github.com/dudeofawesome/klipper-config
+He created the Marcos!
+
 
 ### Slicer Settings to use the Macros
 **Note**: Cura Users. Install the "MeshPrintSize.py" from the Github Root Directory to 
