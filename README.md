@@ -1,10 +1,19 @@
 # My custom Klipper macros
 
+All credit goes to @dudeofawesome -> https://github.com/dudeofawesome/klipper-config
+He created the Marcos!
+
 
 ### Slicer Settings to use the Macros
-**Note**: Cura Users. Install the "MeshPrintSize.py" from the Github Root Directory to 
-"C:\Program Files\Ultimaker Cura **VERSION**\plugins\PostProcessingPlugin\scripts" 
-Then Restart Cura. Extensions -> PostProcessing -> Modify G-Code -> Add a script -> "Mesh Print Size
+**Note**: Cura Users!
+
+*(Cura slicer plugin) To make the macro to work in Cura slicer, you need to install the post process plugin `MeshPrintSize.py` (original credit: [frankbags](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff), I just made only slight modification)
+- In cura menu `Help` -> `Show configuration folder`
+- Copy `MeshPrintSize.py` into `scripts` folder
+- Restart Cura
+- In cura menu `Extensions` -> `Post processing` -> `Modify G-Code` and select `Mesh Print Size`.
+
+**CONFIG**
 
 - [`START_PRINT`](./print_start.cfg)
 
