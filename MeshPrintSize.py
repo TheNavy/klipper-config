@@ -15,22 +15,20 @@ class MeshPrintSize(Script):
         }"""
 
     def execute(self, data):
-            minMaxXY = {'MAXY':0,'MAXX':0, 'MINY':0,'MINX':0}
-            lineData = ''
+        minMaxXY = {'MINX':0,'MINY':0,'MAXX':0,'MAXY':0}
+        re_pattern = re.compile(r'%(' + r'|'.join(minMaxXY.keys()) + r')%')
+        minmax_counter = len(minMaxXY)
 
-            for layer_number, layer in enumerate(data):
-                for k,v in minMaxXY.items():
-                    result = re.search(str(k)+":(\d*\.?\d*)",layer)
-                    if result is not None:
+        for i in range(len(data)):
+            # in Cura "layer' != "line" :-(
+            for k,v in minMaxXY.items():
+                if minmax_counter:
+                    result = re.search(r';' + k + r':\s*(\d*\.\d+|\d+)', data[i])
+                    if result:
                         minMaxXY[k] = result.group(1)
+                        minmax_counter -= 1
+                else:
+                    if re_pattern.search(data[i]):
+                        data[i] = re.sub(r'%' + k + r'%', v, data[i])
 
-                if re.search('START_PRINT.*', layer) is not None:
-                    lineData = layer
-                    for k, v in minMaxXY.items():
-                        pattern = re.compile('START_PRINT ')
-                        replace = 'START_PRINT {variable}={value} '.format(variable = k, value = v)
-                        lineData = re.sub(pattern, replace, lineData)
-
-                    data[layer_number] = lineData
-
-            return data
+        return data
