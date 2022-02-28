@@ -37,7 +37,7 @@ He created the Marcos!
 
       ```lisp
       ;Klipper start print macro
-      START_PRINT HOTEND={material_print_temperature_layer_0} BED={material_bed_temperature_layer_0} RELATIVE_E_MODE={relative_extrusion} PROBE=false PROBE_AREA_START=%MINX%,%MINY% PROBE_AREA_END=%MAXX%,%MAXY%
+      START_PRINT HOTEND={material_print_temperature_layer_0} BED={material_bed_temperature_layer_0} RELATIVE_E_MODE={relative_extrusion} PROBE=true PROBE_AREA_START=%MINX%,%MINY% PROBE_AREA_END=%MAXX%,%MAXY%
       ```
 
 - [`END_PRINT`](./print_end.cfg)
